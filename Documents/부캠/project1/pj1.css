@@ -1,0 +1,172 @@
+/* 전체 선택자 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 태그 선택자 */
+body {
+    font-family: 'Gamja Flower', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* 아이디 선택자 */
+#main-header{
+    background-color: #ffffff;
+    border: 1px solid #949494;
+    background-size: cover;
+    color: #000000;
+    text-align: center;
+    padding: 20px 0;
+    height: 160px;
+}
+/* 자손 선택자 */
+.sidebar nav ul{
+    list-style: none; /*점을 없애줌*/
+    padding: 10px; /*ul 안쪽에 여백*/
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: 15px;
+    border: 1px solid #949494;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    text-decoration: none; /*밑줄 없애기*/
+    margin-bottom: 5px;
+    transition: background-color 0.3s; /*마우스 올리면 부드러운 변화*/
+}
+/*가상 클래스 선택자*/
+.sidebar nav ul li a:hover{
+    background-color: #ffffff(74, 156, 188);
+}
+
+/* 자식 선택자 */
+.reservation-form > form {
+    display: flex;
+    border: 1px solid #949494;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 600px;
+}
+
+/* 인접 형제 선택자 */
+.reservation-form label + input {
+    margin-right: 10px;
+}
+
+
+
+
+/* 가상 요소 선택자 */
+label[for="name"]::before{
+    content: '👤';
+    margin-right: 10px;
+}
+/* 가상 요소 선택자 */
+label[for="people"]::before{
+    content: '👥';
+    margin-right: 10px;
+}
+/* 가상 요소 선택자 */
+label[for="date"]::before{
+    content: '📅';
+    margin-right: 10px;
+}
+/* 가상 요소 선택자 */
+label[for="time"]::before{
+    content: '🕐';
+    margin-right: 10px;
+}
+/* 가상 요소 선택자 */
+label[for="phone"]::before{
+    content: '📞';
+    margin-right: 10px;
+}
+/* 가상 요소 선택자 */
+label[for="money"]::before{
+    content: '💵';
+    margin-right: 10px;
+}
+/* 가상 요소 선택자 */
+label[for="food"]::before{
+    content: '👩‍🍳';
+    margin-right: 10px;
+}
+/* 케이크 라벨 앞에 이모티콘 */
+label[for="cake"]::before {
+    content: '🍰';
+    margin-right: 5px;
+}
+
+/* 쿠키 라벨 앞에 이모티콘 */
+label[for="cookie"]::before {
+    content: '🍪';
+    margin-right: 5px;
+}
+/* 박스 모델 속성 */
+.reservation-form input, .reservation-form button{
+    padding: 10px;
+    border: 1px solid #949494;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-left:5px;
+    margin-right:5px;
+}
+.reservation-form button{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.signup-form button:hover {
+    background-color: rgb(170, 170, 170);
+}
+.sidebar{
+    position: absolute;
+    top: 220px;
+    left: 20px;
+    width: 200px;
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    flex: 1; /*콘텐츠 영역이 남은 공간을 차지하도록*/
+}
+.sidebar nav ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+button:hover {
+    animation: pulse 0.5s;
+}
+@keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+}
+
+/* 푸터 스타일 */
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed; /* fixed로 변경하여 화면 하단에 고정 */
+  bottom: 0;
+  width: 100%;
+}
+
+/* 일반 형제 선택자 */
+footer p ~ p {
+  margin-top: 10px;
+}
