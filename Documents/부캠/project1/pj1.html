@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Day Class reservation form</title> <!-- 브라우저 탭에 표시 -->
     <link rel="stylesheet" href="pj1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 </head>
 <script src="pj1.js"></script>
 <body>
@@ -12,6 +13,7 @@
         <div class="header-container">  <!-- 클래스를 써서 디자인을 공유할 수 있게 -->
             <div class="logo"></div> <!-- 나중에 로고 들어갈 자리! -->
             <h1>One day class reservation form</h1>  <!-- 웹페이지 안에서 표시 -->
+            <small>모든 공지사항은 instagram: @cooking_yum 참고 부탁드립니다.</small>
         </div>
     </header>
 
@@ -30,8 +32,8 @@
         <main class="reservation-form">
             <form>
                 <label for="name">이름:</label>
-                <small>고객님의 성함을 입력해주세요.</small>
                 <input type="text" id="name" name="name">
+                <small>고객님의 성함을 입력해주세요.</small>
 
                 <label for="people">인원 수:</label>
                 <small>최대 6명까지 가능합니다.</small>
@@ -54,7 +56,7 @@
                 <small>형식에 맞게 입력해주세요. 예약 확정 시 문자 보내드립니다</small>
 
                 <label>예약 메뉴 선택:</label>
-                <div class="gender">
+                <div class="food">
                     <input type="radio" id="cake" name="food" value="cake">
                     <label for="cake">바스크 치즈 케이크</label>
 
@@ -64,8 +66,8 @@
 
                 <div class="money">
                     <input type="checkbox" id="money" name="money">
-                    <small>예약금 20,000원을 입금해주세요. 계좌는 매장 소개 참조</small>
                     <label for="money">예약금을 입금했습니다.</label>
+                    <small>예약금 20,000원을 입금해주세요. 계좌는 매장 소개 참조</small>
                 </div>
 
                 <button type="submit" id="submitBtn">reservation</button>
