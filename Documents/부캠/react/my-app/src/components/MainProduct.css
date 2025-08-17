@@ -1,0 +1,69 @@
+/* 섹션 전체 */
+.main-product-section { padding: 80px 0; }
+.main-product-section.enter .fade.on { opacity: 1; transform: translateY(0); }
+
+/* 래퍼 */
+.main-product {
+  position: relative;
+  width: 100vw;
+  height: 500vh;
+  margin: 0 auto;
+}
+
+
+
+/* 레이아웃 */
+.side-data-wrap { width: 100%; }
+.slide-data { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
+
+/* 각 카드 컨테이너(등장 애니메이션용) */
+.slide-cell.fade,
+.side-cell.fade {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+/* ProductCard 안 .visual은 “배경이미지” 박스라고 가정 */
+.main-product-cell .visual {
+  display: block;
+  width: 100%;
+  /* 높이 확보 (16:9). 필요시 수치 변경 */
+  position: relative;
+  padding-top: 56%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 텍스트 영역(원하는대로 조절) */
+.main-product-cell .txt-wrap { margin-bottom: 16px; }
+.main-product-cell .en-name { font-size: clamp(24px, 4vw, 40px); font-weight: 800; line-height: 1.1; color:#000 }
+.main-product-cell .ko-name { margin-top: 6px; font-size: 18px; font-weight: 700; color:#000 }
+.main-product-cell .info { margin-top: 8px; font-size: 14px; color: #000000; }
+
+/* 버튼 묶음 */
+/* .main-product-cell .btns { margin-top: 14px; display: flex; gap: 10px; }
+.main-product-cell .btns .btn-02 { padding: 8px 14px; border-radius: 6px; background: #2c2c2c; color: #fff; } */
+
+/* 좌/우 네비 버튼 */
+.mp-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: rgba(0,0,0,.15); backdrop-filter: blur(2px);
+  font-size: 26px; line-height: 44px; cursor: pointer; color: #fff;
+}
+.mp-nav.prev { left: -6px; }
+.mp-nav.next { right: -6px; }
+
+/* 점 네비 */
+.mp-dots { display:flex; justify-content:center; gap:10px; margin-top: 22px; }
+.mp-dot { width:8px; height:8px; border-radius:50%; border:0; background:#bbb; cursor:pointer; }
+.mp-dot.is-active { background:#651D16; }
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .slide-data { grid-template-columns: 1fr; }
+}
