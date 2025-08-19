@@ -1,0 +1,109 @@
+.main-benefit {
+  margin-top: -200px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.main-benefit .benefit-top-img {
+  margin-bottom: -30px;
+  transform: translateX(-300px);
+}
+
+.main-benefit .benefit-top-img img {
+  width: 100%;
+  max-width: 20%; /* 너무 커지지 않게 제한 */
+  object-fit: cover;
+}
+
+.main-benefit .benefit-img.bg {
+  margin-bottom: 100px;
+   aspect-ratio: 3 / 1;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+  width: 70%;
+  place-items: center;           /* 가운데 정렬 */
+  border-radius: 0px;
+   margin: 0 auto;
+  object-fit: cover;
+}
+
+
+@media (max-width: 1200px){
+  .main-benefit .benefit-img.bg{
+    width: 90%;
+  border-radius: 0;
+}
+/* .main-benefit .benefit-top-img img {
+  max-width: 30%; 
+} */
+  }
+
+
+.main-benefit h3 {
+  transform: translateY(40px);
+  font-size: 300%;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.main-benefit .info {
+  transform: translateY(40px);
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.main-benefit ul {
+  transform: translateY(40px);
+  display: flex;
+  justify-content: center;
+  /* gap: 40px; */
+  /* flex-wrap: wrap; */
+  padding: 0;
+  /* list-style: none; */
+}
+
+.main-benefit li {
+  list-style: none; 
+  transform: translateY(40px);
+  flex: 1 1 250px;
+  max-width: 300px;
+  background:none;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-benefit li:hover {
+  /* transform: translateY(40px); */
+  transform: scale(1.03);
+}
+
+
+
+.main-benefit .icon img {
+  transform: translateY(0px);
+  aspect-ratio: 1 / 2;
+  width: 40%;
+  height: 20%;
+  margin-bottom: 15px;
+}
+
+.main-benefit .icon-name {
+  transform: translateY(0px);
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.main-benefit .icon-info {
+  font-size: 0.9rem;
+  color: #ffffff;
+  line-height: 1.4;
+}
+

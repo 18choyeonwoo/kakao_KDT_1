@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header'
 import MainBanner from './components/MainBanner';
 import MainProduct from './components/MainProduct';
+import Benefit from './components/Benefit';
+import MainReward from './components/MainReward';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Header />
       <MainBanner />
       <MainProduct />
+      <Benefit />
+      <MainReward />
     </div>
   );
 }

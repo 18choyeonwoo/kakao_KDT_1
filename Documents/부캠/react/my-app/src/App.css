@@ -51,14 +51,15 @@ body {
 }
 */
  #wrap {
-  background-color: #651D16;
+  background-color: hsl(0, 0%, 100%);
   color: #ffffff;
   text-align: left;
   padding: 20px ;
-  height: 100px;
+  height: 0px;
   background-size: cover;
   transition: background-color 1s ease, color 1s ease;
 } 
+
 #skip_link{
   color: #651D16;
 }

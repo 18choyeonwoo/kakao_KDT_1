@@ -1,6 +1,6 @@
 
 /* 상단 고정 높이만큼 본문 여백 */
-.main,.main-banner{margin-top:100px}
+.main,.main-banner{margin-top:0px}
 /* 헤더 높이 110px */
 
 body { margin: 0; }
@@ -10,7 +10,7 @@ body { margin: 0; }
   width: 100vw;
   margin-left: calc(50% - 50vw);  /* 컨테이너 탈출해서 화면 꽉 */
   margin-right: calc(50% - 50vw);
-  margin-top: 62px;              /* 헤더 높이만큼 띄움 */
+  margin-top: 0px;              /* 헤더 높이만큼 띄움 */
 }
 
 
@@ -18,7 +18,7 @@ body { margin: 0; }
   display: block;
   width: 100%;
   height: calc(100vh - 90px);
-  transform: translateY(7px);
+  /* transform: translateY(7px); */
   margin-bottom: 0;
   margin:0;
   object-fit: cover;

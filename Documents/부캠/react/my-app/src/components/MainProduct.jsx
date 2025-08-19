@@ -3,43 +3,43 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import useInView from "../hooks/useInView";
 import useInterval from "../hooks/useInterval";
 import ProductCard from "./ProductCard";
-import './MainProduct.css'; 
+import './MainProduct.css';
 
 
 export default function MainProduct() {
   const items = [
     {
-      en: "GARLIC RIBEYE",
+      en: "GARLIC\nRIBEYE",
       ko: "갈릭 립아이",
-      info: "구운 마늘과 마늘칩이 어우러진 꽃등심 스테이크",
+      info: "구운 마늘과 마늘칩이 어우러진 \n꽃등심 스테이크",
       visual: "/20240717154449016372.jpg",
       title: "갈릭 립아이",
     },
     {
-      en: "GOLD COAST COCONUT SHRIMP",
+      en: "GOLD COAST \nCOCONUT \nSHRIMP",
       ko: "골드 코스트 코코넛 쉬림프",
-      info: "달콤하고 고소한 코코넛 가루를 묻혀 바삭하게 튀긴 새우 요리",
+      info: "달콤하고 고소한 코코넛 가루를 묻혀 \n바삭하게 튀긴 새우 요리",
       visual: "/20190108172841884005.jpg",
       title: "골드 코스트 코코넛 슈림프",
     },
     {
-      en: "BABY BACK RIBS",
+      en: "BABY BACK \nRIBS",
       ko: "베이비 백 립",
-      info: "부드러운 돼지갈비에 아웃백만의 특제 소스를 발라 구워낸 바비큐 요리",
+      info: "부드러운 돼지갈비에 아웃백만의 특제 소스를 \n발라 구워낸 바비큐 요리",
       visual: "/20180627183554751017.jpg",
       title: "갈릭 립아이",
     },
     {
-      en: "AUSSIE CHEESE FRIES",
+      en: "AUSSIE \nCHEESE \nFRIES",
       ko: "오지 치즈 후라이즈",
-      info: "두툼한 감자튀김에 체다치즈, 잭치즈를 듬뿍 녹여 베이컨을 뿌린 메뉴",
+      info: "두툼한 감자튀김에 체다치즈, 잭치즈를 듬뿍 \n녹여 베이컨을 뿌린 메뉴",
       visual: "/20180627183609110019.jpg",
       title: "갈릭 립아이",
     },
   ];
 
   const len = items.length; //슬라이드 개수
-  const [sectionRef, inView] = useInView({ threshold: 0.15 }); 
+  const [sectionRef, inView] = useInView({ threshold: 0.15 });
   // dom에 꽂을 ref & 15% 이상 보이는지 나타내는 불린값 inview(true여야만 동작)
   const [idx, setIdx] = useState(0); //슬라이스 인덱스(0부터)
   const [paused, setPaused] = useState(false); //자동재생 일시정지 여부
@@ -64,34 +64,54 @@ export default function MainProduct() {
   // 프리로드(다음 카드 비동기 로딩)
   useEffect(() => {
     const preload = new Image();
-    preload.src = items[(idx + 1) % len].visual;
+    preload.src = items[(idx) % len].visual;
   }, [idx, len, items]);
 
   const dots = useMemo(() => Array.from({ length: len }), [len]); //계산결과 메모
-  const cur = items[idx]; //현재 표시중인데이터
-  const nxt = items[(idx + 1) % len] //미리보기 데이터
+  const cur = items[(idx+1) % len]; //현재 표시중인데이터
+  const nxt = items[(idx) % len] //미리보기 데이터
 
   return (
     <section
       ref={sectionRef} //io로 관찰할 dom. 이섹션이 뷰포트 15%이상 보이면 true 
-      id="dBody" 
-      className={`main main-product-section ${inView ? "enter" : ""}`} 
+      id="dBody"
+      className={`main main-product-section ${inView ? "enter" : ""}`}
       // 보이면, css에서 enter을 사용해서 디자인
-      
+
       aria-roledescription="carousel" //접근성 개선하는 코드
     >
       <div className="main-product">
         <div className="side-data-wrap">
-          <div className="slide-data"> 
-            {/* 현재 큰 카드 */}
-            <div className={`slide-cell fade ${inView ? "on" : ""}`}>
-              <ProductCard key={cur.en} {...cur} onHoverChange={setPaused} />
+          <div className="slide-data">
+
+            {/* 다음 카드 미리보기 */}
+            <div className={`side-cell fade ${inView ? "on" : ""}`}>
+              <div
+                className="visual"
+                style={{ backgroundImage: `url(${nxt.visual})` }}
+              />
             </div>
 
-            {/* 옆에 다음 카드 미리보기 */}
-            <div className="side-cell fade">
-              <ProductCard key={nxt.en} {...nxt} />
+            {/* 현재 큰 카드 */}
+            <div className={`slide-cell fade ${inView ? "on" : ""}`}>
+
+              <div className="main-card">
+
+                {/* 설명 컨테이너 */}
+                <div className="main-text">
+                  <p className="en-name">{cur.en}</p>
+                  <p className="ko-name">{cur.ko}</p>
+                  <p className="info">{cur.info}</p>
+                </div>
+
+                {/* 사진 컨테이너 */}
+                <div className="main-visual">
+                  <img src={cur.visual} alt={cur.en} className="main-visual-img" />
+                </div>
+
+              </div>
             </div>
+
           </div>
         </div>
 
