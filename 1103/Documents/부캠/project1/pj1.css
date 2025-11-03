@@ -1,0 +1,218 @@
+/* ================== 기본 초기화 ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gamja Flower', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================== 헤더 ================== */
+#main-header {
+  background-color: #ffffff;
+  border: 1px solid #949494;
+  color: #000000;
+  text-align: center;
+  padding: 20px 0;
+  height: 160px;
+  background-size: cover;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+#main-header:hover {
+  background-color: #4b4b4b;
+  color: #ffffff;
+}
+
+/* ================== 사이드바 ================== */
+.sidebar {
+  position: absolute;
+  top: 220px;
+  left: 10px;
+  width: 200px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  padding: 15px;
+  border: 1px solid #949494;
+  color: #000;
+  background-color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+}
+
+
+
+/* 사이드바 항목 확장 및 내용 표시 */
+.sidebar .store-info,
+.sidebar .menu-info,
+.sidebar .map-info {
+  width: 150px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  transition: width 0.4s ease, background-color 0.4s ease;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 여기에서 a:hover가 아니라 li:hover로 확장함 */
+.sidebar:hover .store-info,
+.sidebar:hover .menu-info,
+.sidebar:hover .map-info {
+  width: 320px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* 필요하다면 글자색도 바꿔주기 */
+.sidebar li:hover a {
+  color: #000000;
+}
+
+.sidebar .content,
+#mapContent {
+  display: block;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  white-space: normal;
+  margin-top: 10px;
+}
+
+.sidebar .store-info:hover .content,
+.sidebar .menu-info:hover .content,
+.sidebar .map-info:hover #mapContent {
+  opacity: 1;
+  max-height: 1000px;
+}
+
+/* ================== 본문 ================== */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  flex: 1;
+}
+
+.reservation-form {
+  padding: 100px;
+}
+
+.reservation-form > form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #949494;
+  border-radius: 5px;
+}
+
+.reservation-form label {
+  margin-bottom: 10px;
+}
+
+.reservation-form small {
+  margin-bottom: 12px;
+  display: block;
+}
+
+.reservation-form label + input {
+  margin-right: 20px;
+}
+
+.reservation-form small + label {
+  margin-top: 50px;
+}
+
+.reservation-form input,
+.reservation-form button {
+  padding: 10px;
+  border: 1px solid #949494;
+  border-radius: 5px;
+  margin: 5px 5px 15px;
+}
+
+.reservation-form button {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 50px;
+}
+
+.reservation-form button:hover {
+  background-color: #aaa;
+}
+
+.reservation-form input[type="checkbox"] {
+  margin-bottom: 50px;
+}
+
+.people-num {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.money div small {
+  margin-top: 50px;
+}
+
+/* ================== 아이콘/이모지 ================== */
+label[for="name"]::before { content: '👤'; margin-right: 10px; }
+label[for="people"]::before { content: '👥'; margin-right: 10px; }
+label[for="date"]::before { content: '📅'; margin-right: 10px; }
+label[for="time"]::before { content: '🕐'; margin-right: 10px; }
+label[for="phone"]::before { content: '📞'; margin-right: 10px; }
+label[for="money"]::before { content: '💵'; margin-right: 10px; }
+label[for="food"]::before { content: '👩‍🍳'; margin-right: 10px; }
+label[for="cake"]::before { content: '🍰'; margin-right: 10px; }
+label[for="cookie"]::before { content: '🍪'; margin-right: 10px; }
+
+/* ================== 애니메이션 ================== */
+button:hover {
+  animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ================== 푸터 ================== */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p ~ p {
+  margin-top: 10px;
+}
