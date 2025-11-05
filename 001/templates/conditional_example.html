@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>조건문 예제</title>
+</head>
+<body>
+    {% if template_variable < 20 %}
+        <p>{{ template_variable }}은 20보다 작다.</p>
+    {% elif template_variable > 20 %}
+        <p>{{ template_variable }}은 20보다 크다.</p>
+    {% else %}
+        <p>{{ template_variable }}은 20이다.</p>
+    {% endif %}
+</body>
+</html>

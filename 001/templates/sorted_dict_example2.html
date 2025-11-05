@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>dictsort 필터 예제</title>
+</head>
+<body>
+    <h2>정렬된 딕셔너리 항목</h2>
+    <ul>
+    {% if sort_by == 'value' %}
+        {% for key, value in template_dict | dictsort(by='value', reverse=reverse) %}
+            <li>{{ key }} : {{ value }}</li>
+        {% endfor %}
+    {% else %}
+        {% for key, value in template_dict | dictsort(reverse=reverse) %}
+            <li>{{ key }} : {{ value }}</li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+
+    <h3>정렬 옵션</h3>
+    <p>키로 정렬: <a href="/sorted_dict?sort_by=key&reverse=false">오름차순</a> | <a href="/sorted_dict?sort_by=key&reverse=true">내림차순</a></p>
+    <p>값으로 정렬: <a href="/sorted_dict?sort_by=value&reverse=false">오름차순</a> | <a href="/sorted_dict?sort_by=value&reverse=true">내림차순</a></p>
+</body>
+</html>

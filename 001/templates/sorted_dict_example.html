@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>dictsort 필터 예제</title>
+</head>
+<body>
+    <h2>정렬된 딕셔너리 항목</h2>
+    <ul>
+    {# dictsort : 키를 기준으로 정렬 (by='key',reverse=false): 기본값  #}
+    {# dictsort(reverse=true) : 키를 기준으로 정렬(역순)  #}
+    {# dictsort(by='value') : 값을 기준으로 정렬   #}
+    {# dictsort(by='value',reverse=true) : 값을 기준으로 정렬(역순)   #}
+    {% for key, value in template_dict | dictsort %}
+        <li>{{ key }} : {{ value }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

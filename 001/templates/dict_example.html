@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>딕셔너리 반복문 예제</title>
+</head>
+<body>
+    <h2>딕셔너리 항목</h2>
+    <ul>
+    {% for key, value in template_dict.items() %}
+        <li>{{ key }} : {{ value }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

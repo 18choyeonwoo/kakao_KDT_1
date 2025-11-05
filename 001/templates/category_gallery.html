@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ category }} 갤러리</title>
+</head>
+<body>
+  <h1>{{ category }} 카테고리 이미지</h1>
+  {% for img in images %}
+    <img src="{{ img }}" width="200" style="margin:10px">
+  {% endfor %}
+</body>
+</html>
+

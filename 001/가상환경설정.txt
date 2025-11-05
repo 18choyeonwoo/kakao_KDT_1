@@ -1,0 +1,20 @@
+# 1. 새 프로젝트 시작
+cd my_project
+
+# 2. 가상환경 생성
+python -m venv venv
+
+# 3. 가상환경 활성화
+venv\Scripts\activate
+
+# 4. 필요한 패키지 설치
+pip install flask
+
+# 5. 의존성 저장
+pip freeze > requirements.txt
+
+## 버전별 의존성 설치 
+pip install -r requirements.txt
+
+# 6. 작업 완료 후 비활성화
+deactivate

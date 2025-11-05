@@ -1,0 +1,7 @@
+<h2>보드 리스트</h2>
+<table border="1">
+    <tr><th>파라미터</th><th>값</th></tr>
+    {% for key, value in paramsboard.items() %}
+    <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+    {% endfor %}
+</table>
