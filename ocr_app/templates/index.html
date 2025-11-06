@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR 이미지 업로드</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-band"></div>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/logo1.png') }}" alt="SMART NOTE Q 로고" class="logo">
+    </div>
+    <div class="logo-container2">
+        <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="SMART NOTE Q 로고 설명" class="logo">
+    </div>
+    <div class="star-container">
+        <img src="{{ url_for('static', filename='images/star1.png') }}" alt="star1" class="logo">
+    </div>
+    <div class="cloud-container">
+        <img src="{{ url_for('static', filename='images/cloud.png') }}" alt="cloud1" class="logo">
+    </div>
+    <!-- <h3>OCR & chatgpt 기반의 똑똑한 텍스트 변환 서비스예요.</h3> -->
+
+    <form id="upload-form" enctype="multipart/form-data">
+    <div class="form-top">
+        <input type="file" id="file-input" name="file" accept="image/*" required>
+        <button type="submit">업로드</button>
+    </div>
+    <div id="preview"></div>
+    </form>
+
+    <div id="progress">
+        <p id="loadingText"></p>
+        <div id="bar-container"><div id="bar"></div></div>
+    </div>
+
+
+    <div id="result">
+        <div id="tesseract-result"></div>
+        <div id="easyocr-result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
