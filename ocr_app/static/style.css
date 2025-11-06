@@ -1,6 +1,7 @@
 /* style.css */
 
 body {
+    position: relative;
     font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     /* background: linear-gradient(135deg, #f9f9f9, #ffffff); */
     display: flex;
@@ -19,24 +20,35 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 40%;         /* 뷰포트 높이의 30% */
+  height: 250px;         /* 뷰포트 높이의 30% */
   background-color: #e49449; /* 원하는 색으로 변경 */
   z-index: -1;          /* 콘텐츠 위에 겹치지 않게 뒤로 보냄 */
 }
+.top-band2 {
+  position: absolute;      /* 화면 고정(스크롤해도 유지). fixed가 싫으면 absolute로 변경 가능 */
+  top: 330px;       /* 밴드 시작 위치 (화면 위에서 60%) */
+  left: 10%;      /* width 80%에 맞춰 좌측 10% */
+  right: 10%;     /* width 80%에 맞춰 우측 10% */
+  bottom: 0;
+  background-color: #e2d2c3; /* 원하는 색으로 변경 */
+  border-top-left-radius: 300px;   /* 왼쪽 위 둥글게 */
+  border-top-right-radius: 300px;  /* 오른쪽 위 둥글게 */
+  z-index: -2;          /* 콘텐츠 위에 겹치지 않게 뒤로 보냄 */
+}
 .logo-container {
     text-align: center;
-    margin-top: 55px;
-    margin-bottom: 80px;
+    margin-top: 40px;
+    margin-bottom: 100px;
 }
 
 .logo-container .logo {
-    width: 400px;   /* ← 원하는 크기로 조정 (기본은 px, %도 가능) */
+    width: 250px;   /* ← 원하는 크기로 조정 (기본은 px, %도 가능) */
     height: auto;
 }
 
 .logo-container2 {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 150px;
     margin-bottom: 20px;
 }
 
@@ -111,7 +123,7 @@ input[type="file"] {
 }
 
 button {
-    background-color: #4b6cff;
+    background-color: #afafaf;
     color: white;
     border: none;
     border-radius: 10px;
