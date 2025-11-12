@@ -1,0 +1,145 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #de8f97 70%, #ffffff 70%);
+}
+
+/* 전체 화면을 좌우로 나누기 */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 왼쪽 영역 */
+.textArea {
+    flex: 7; /* 70% */
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    padding-left: 5vw;
+    color: rgb(0, 0, 0);
+}
+
+/* 오른쪽 영역 */
+.buttonArea {
+    flex: 3; /* 30% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    padding-left: 1vw;
+    transform: translateY(-30px);
+}
+
+/* 텍스트 스타일 */
+h1 {
+    font-family: 'Chiron Hei HK', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 8vw;
+    margin: 0;
+}
+p {
+    margin-top: 3vw;
+    font-family: 'Chiron Hei HK', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 4vw;
+}
+.service {
+    position: relative; /* 툴팁 위치 기준 */
+    margin: 20px 0;
+}
+
+.service-btn {
+    position: relative;
+    /* width: 40vw; */
+    text-align: left;
+    font-family: "Asta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 3vw;
+    color: rgb(0, 0, 0);
+    border: none;
+    background-color: transparent; /* 배경 투명 */
+    border: none;
+    cursor: pointer;
+    padding: 15px 40px;
+    margin: 10px;
+    overflow: hidden;
+}
+/* 밑줄 기본 상태 (길이 0) */
+.service-btn::after {
+    content: "";
+    position: absolute;
+    left: 40px; /* 글자 시작 지점에 맞추기 */
+    bottom: 10px; /* 글자 아래 여백 */
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease; /* 자연스럽게 스윽 */
+}
+
+/* hover 시 밑줄 확장 */
+.service-btn:hover::after {
+    width: 70%; /* 밑줄 길이 조절 가능 */
+}
+
+/* 툴팁 기본 상태 */
+.tooltip {
+    font-family: "Asta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1vw;
+    position: absolute;
+    left: 50px;
+    top: 100%; /* 버튼 바로 아래 */
+    opacity: 0;
+    transform: translateY(10px); /* 살짝 아래에서 올라오는 느낌 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 1.2vw;
+    color: #555;
+    white-space: nowrap;
+}
+
+/* 버튼 hover 시 툴팁 나타나기 */
+.service-btn:hover + .tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+/* 로그아웃 버튼 */
+.logout-btn {
+    position: relative;
+    background: none;
+    border: none;
+    font-family: "Asta Sans", sans-serif;
+    font-size: 1.2rem;
+    color: #000;
+    cursor: pointer;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.logout-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #000;
+    transition: width 0.3s ease;
+}
+
+.logout-btn:hover::after {
+    width: 100%;
+}

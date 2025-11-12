@@ -11,6 +11,7 @@ def create_app():
         static_folder=os.path.join(os.path.dirname(__file__), 'static')
     )
 
+    app.config['SECRET_KEY'] = 'mykey123'
     app.config['UPLOAD_FOLDER'] = os.path.join(app.static_folder, 'uploads')
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ocr_results.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -22,7 +23,9 @@ def create_app():
 
     # Blueprint 등록
     from .routes import main
+    from .auth import auth
     app.register_blueprint(main)
+    app.register_blueprint(auth)
 
     with app.app_context():
         db.create_all()

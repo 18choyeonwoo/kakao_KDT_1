@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>OCR 이미지 업로드</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&family=Chiron+Hei+HK:ital,wght@0,200..900;1,200..900&family=Gamja+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        <h1 class="my1">upload</h1>
+        <h1 class="my2">your</h1>
+        <h1 class="my3">note</h1>
+    </div>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/book2.png') }}" alt="book" class="logo">
+    </div>
+    <!-- <div class="top-band"></div> -->
+    <button class="login-btn" id="loginBtn">&gt; Click to login</button>
+    <div class="login">
+        <div class="login-box">
+            <h2>Log In</h2>
+            <form method="POST">
+                <h3>ID</h3>
+                <input type="text" name="username" placeholder="아이디를 입력하세요" required><br>
+                <h3>password</h3>
+                <input type="password" name="password" placeholder="비밀번호를 입력하세요" required><br>
+                <button class="submitBtn" type="submit">로그인</button>
+            </form>
+        </div>
+    </div>
+    <div class="info">
+        <h4>Github id: @18yeonwoo</h3>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='script2.js') }}"></script>
+</body>
+</html>
+</html>

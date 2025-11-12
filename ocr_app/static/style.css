@@ -1,8 +1,10 @@
 /* style.css */
 
 body {
+    /* font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal; */
     position: relative;
-    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     /* background: linear-gradient(135deg, #f9f9f9, #ffffff); */
     display: flex;
     background-color: hsl(0, 0%, 100%);
@@ -14,6 +16,47 @@ body {
     padding-bottom: 100px;
     color: #333;
 }
+.top-bar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    /* border-bottom: 1px solid #ddd; */
+    font-family: "Pretendard", sans-serif;
+}
+
+.welcome {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.logout-btn {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    background-color: #79d1b7;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-left: 10px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #e05757;
+}
+
 /* 상단 30% 단색 바 */
 .top-band {
   position: absolute;      /* 화면 고정(스크롤해도 유지). fixed가 싫으면 absolute로 변경 가능 */
@@ -44,6 +87,7 @@ body {
 .logo-container .logo {
     width: 250px;   /* ← 원하는 크기로 조정 (기본은 px, %도 가능) */
     height: auto;
+    animation: float 3s ease-in-out infinite;
 }
 
 .logo-container2 {
@@ -86,6 +130,7 @@ h3{
 
 /* 업로드 폼 */
 form {
+    
     background: white;
     border-radius: 16px;
     padding: 20px 30px;
@@ -98,6 +143,7 @@ form {
     border: 0.5px solid #b5b5b5;
 }
 #upload-form {
+    
     display: flex;
     flex-direction: column; /* 위아래 배치 */
     align-items: center;
@@ -115,6 +161,11 @@ form {
 }
 
 input[type="file"] {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color: gray;
     border: 1.5px solid #ccc;
     border-radius: 10px;
     padding: 8px;
@@ -123,7 +174,10 @@ input[type="file"] {
 }
 
 button {
-    background-color: #afafaf;
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #79d1b7;
     color: white;
     border: none;
     border-radius: 10px;
@@ -135,7 +189,7 @@ button {
 }
 
 button:hover {
-    background-color: #3d57d1;
+    background-color: #5399b7;
     transform: scale(1.03);
 }
 
@@ -149,6 +203,9 @@ button:hover {
 }
 
 #loadingText {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 14px;
     color: #555;
     margin-bottom: 8px;
@@ -202,11 +259,15 @@ button:hover {
 }
 
 
-#tesseract-result, #easyocr-result {
+#tesseract-result, #easyocr-result, #canvas-result {
+    text-align: center;
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     background: #ffffff;
     border-radius: 14px;
     padding: 18px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 15px rgba(170, 164, 61, 0.05);
     line-height: 1.6;
     font-size: 15px;
     overflow-y: auto;
@@ -218,25 +279,45 @@ button:hover {
     margin-top: 50px;
 }
 #easyocr-result {
+}
+#canvas-result {
     margin-bottom: 100px;
+}
+#canvas-result::before {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    content: "OCR 시각화 결과";
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: #4a4d5e;
+    display: block;
+    margin-bottom: 8px;
 }
 
 #tesseract-result::before {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     content: "Tesseract 결과";
     text-align: center;
     font-weight: 600;
     font-size: 20px;
-    color: #4b6cff;
+    color: #4a4d5e;
     display: block;
     margin-bottom: 8px;
 }
 
 #easyocr-result::before {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     content: "EasyOCR 결과";
     text-align: center;
     font-weight: 600;
     font-size: 20px;
-    color: #2ca45d;
+    color: #dd88ad;
     display: block;
     margin-bottom: 8px;
 }
