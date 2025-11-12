@@ -30,9 +30,12 @@
                 <span class="tooltip">텍스트 추출, 배경제거 결과를 통해<br> 챗봇이 예상문제를 만들어줘요.</span>
             </div>
         </div>
-    </div>
+        </div>
     <div class="header">
-    <button class="logout-btn" onclick="logout()">로그아웃</button>
+    <div class="top-bar">
+        <p class="welcome">{{ username }}님</p>
+        <button class="logout-btn" onclick="logout()">로그아웃</button>
+    </div>
 </div>
 <script>
     function logout() {
