@@ -15,7 +15,7 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = os.path.join(app.static_folder, 'uploads')
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ocr_results.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+    app.config['DEBUG'] = True
     db.init_app(app)
 
     # 업로드 폴더 생성
@@ -26,6 +26,9 @@ def create_app():
     from .auth import auth
     app.register_blueprint(main)
     app.register_blueprint(auth)
+    from .sam_routes import sam_bp
+    app.register_blueprint(sam_bp)
+
 
     with app.app_context():
         db.create_all()

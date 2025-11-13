@@ -1,0 +1,326 @@
+/* style.css */
+
+body {
+    position: relative;
+    display: flex;
+    background-color: hsl(0, 0%, 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 100px;
+    color: #333;
+    background: linear-gradient(
+    to right,      /* 왼쪽 → 오른쪽 방향 */
+    #de8f97 0%,    /* 핑크 시작 */
+    #de8f97 15%,   /* 30%까지 핑크 */
+    #ffffff 15%,   /* 흰색 시작 */
+    #ffffff 85%,   /* 70%까지 흰색 */
+    #de8f97 85%,   /* 핑크 시작 */
+    #de8f97 100%   /* 끝까지 핑크 */
+);
+
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+.back-btn{
+    position: fixed;
+    top: 38px;             /* 상단에서 20px */
+    left: 30px;            /* 좌측에서 20px */
+    z-index: 1000;         
+    background: none;
+    border: none;
+    font-family: "Asta Sans", sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px;
+    overflow: hidden;
+}
+/* 로그아웃 버튼 */
+.top-bar {
+    display: flex;                   /* Flex 적용 */
+    justify-content: space-between;  /* 좌우 끝 정렬 */
+    align-items: center;             /* 세로 가운데 맞춤 */
+}
+.logout-btn {
+    position: relative;
+    background: none;
+    border: none;
+    font-family: "Asta Sans", sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px;
+    overflow: hidden;
+}
+.top-bar .welcome {
+    /* margin-top: 1vw; */
+    font-family: 'Chiron Hei HK', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.logout-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.logout-btn:hover::after {
+    width: 100%;
+}
+/* 로그아웃 버튼 */
+
+/* 타이틀과 로고 */
+.title {
+    position: absolute;      /* 절대 위치 */
+    top: 20px;               /* 화면 위쪽에서 20px 떨어짐 */
+    left: 50%;               /* 가로 중앙 */
+    transform: translateX(-50%); /* 중앙 정렬 */
+    z-index: 10;             /* 로고보다 위에 표시 */
+}
+.title h1.my1 {
+    /* top: 0px; 
+    bottom: 0px; */
+    font-family: 'Chiron Hei HK', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 3rem;
+    color:#000000;
+}
+.logo-container {
+    position: relative;
+    text-align: center;
+    top: 7vw;
+    margin-bottom: 100px;
+    z-index: -10;
+}
+
+.logo-container .logo {
+    width: 250px;   /* ← 원하는 크기로 조정 (기본은 px, %도 가능) */
+    /* height: auto; */
+}
+
+h3 {
+    font-family: 'Chiron Hei HK', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+    color:#000000;
+}
+/* 타이틀과 로고 */
+
+
+/* 업로드 폼 */
+form {
+    max-width: 50%;
+    background: white;
+    border-radius: 16px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid #b5b5b5;
+    margin-top: 5%;
+}
+#upload-form {
+    display: flex;
+    flex-direction: column; /* 위아래 배치 */
+    align-items: center;
+    gap: 10px; /* 위아래 간격 */
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+}
+
+.form-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 파일입력-버튼 간 간격 */
+}
+
+input[type="file"] {
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    color: gray;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    background: #fafafa;
+}
+
+.upload-btn {
+    position: relative;
+    background: none;
+    border: none;
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #000;
+    cursor: pointer;
+    padding: 5px;
+    overflow: hidden;
+}
+
+
+.upload-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #000;
+    transition: width 0.3s ease;
+}
+
+.upload-btn:hover::after {
+    width: 100%;
+}
+
+
+/* 로딩바 */
+#progress {
+    width: 300px;
+    margin-top: 50px;
+    display: none;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#loadingText {
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+#bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, rgb(206, 206, 206), rgb(206, 206, 206));
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
+/* 이미지 미리보기 */
+#preview img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;  /* 비율유지 */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 결과 영역 (초기에는 숨김 상태) */
+#result {
+    /* display: none; */
+    flex-direction: column;
+    width: 50%;                /* 흰색 영역 비율과 맞춤 */
+    max-width: 800px;
+    overflow-y: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;    /* 결과 박스 흰색 배경 */
+    padding: 20px;
+}
+
+/* 결과가 나타날 때 적용할 클래스 */
+#result.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+#tesseract-result, #easyocr-result, #canvas-result {
+    text-align: center;
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 3px 15px rgba(170, 164, 61, 0.05);
+    line-height: 1.6;
+    font-size: 15px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+#tesseract-result {
+    margin-top: 50px;
+}
+#easyocr-result {
+}
+#canvas-result {
+    margin-bottom: 100px;
+}
+#canvas-result::before {
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    content: "OCR 시각화 결과";
+    text-align: center;
+    font-size: 20px;
+    color: #4a4d5e;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#tesseract-result::before {
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    content: "Tesseract 결과";
+    text-align: center;
+    font-size: 20px;
+    color: #4a4d5e;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#easyocr-result::before {
+    font-family: "Chiron Hei HK", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    content: "EasyOCR 결과";
+    text-align: center;
+    font-size: 20px;
+    color: #dd88ad;
+    display: block;
+    margin-bottom: 8px;
+}

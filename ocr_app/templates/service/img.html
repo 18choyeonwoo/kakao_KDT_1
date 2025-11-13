@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>배경 제거 서비스</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='img.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:wght@200;400&display=swap" rel="stylesheet">
+    <style>
+  canvas { border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+    <button class="back-btn" onclick="back()"><</button>
+    <!-- 로그아웃 버튼 영역 -->
+    <div class="header">
+        <div class="top-bar">
+            <p class="welcome">{{ username }}님</p>
+            <button class="logout-btn" onclick="logout()">로그아웃</button>
+        </div>
+    </div>
+    <div class="title">
+        <h1 class="my1">배경 제거</h1>
+    </div>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/book2.png') }}" alt="book2" class="logo">
+        <h3>깔끔한 누끼 따기 서비스예요.</h3>
+    </div>
+
+    <form id="upload-form" enctype="multipart/form-data">
+        <div class="form-top">
+            <input type="file" id="file-input" name="file" accept="image/*" required>
+            <button class="upload-btn" type="submit">업로드</button>
+        </div>
+        <div id="preview"></div>
+    </form>
+
+    <div id="progress">
+        <p id="loadingText"></p>
+        <div id="bar-container"><div id="bar"></div></div>
+    </div>
+
+
+    <!-- <div id="result">
+        <img id="sam-result-img" src="" alt="SAM Result" style="max-width:100%; display:none;">
+    </div> -->
+
+    <script src="{{ url_for('static', filename='img.js') }}"></script>
+    <script>
+    function logout() {
+        window.location.href = "/auth/logout"; // Flask의 logout 라우트로 이동
+    }
+</script>
+<script>
+    function back() {
+        window.location.href = "/home"; // Flask의 logout 라우트로 이동
+    }
+</script>
+</body>
+</html>

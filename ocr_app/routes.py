@@ -38,7 +38,14 @@ def home():
 def ocr_page():
     if 'username' not in session:
         return redirect(url_for('auth.login'))
-    return render_template('index.html', username=session['username'])
+    return render_template('service/ocr.html', username=session['username'])
+
+# ✅ 배경제거 서비스 페이지
+@main.route('/home/img')
+def img_page():
+    if 'username' not in session:
+        return redirect(url_for('auth.login'))
+    return render_template('service/img.html', username=session['username'])
 
 
 # ✅ 파일 업로드 및 OCR 처리

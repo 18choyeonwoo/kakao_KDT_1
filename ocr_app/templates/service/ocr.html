@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>OCR 이미지 업로드</title>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ocr.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&family=Gamja+Flower&display=swap" rel="stylesheet">
@@ -27,6 +27,7 @@
     </div>
     <div class="logo-container">
         <img src="{{ url_for('static', filename='images/book2.png') }}" alt="book2" class="logo">
+        <h3>여러분의 필기 노트에서 텍스트를 추출해줘요.</h3>
     </div>
 
     <form id="upload-form" enctype="multipart/form-data">

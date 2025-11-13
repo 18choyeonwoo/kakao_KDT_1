@@ -26,7 +26,7 @@ body {
     justify-content:center;
     align-items: flex-start; /* 왼쪽 정렬 */
     padding-left: 5vw;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 /* 오른쪽 영역 */
