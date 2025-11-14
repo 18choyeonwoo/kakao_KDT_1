@@ -1,47 +1,67 @@
 from flask import Blueprint, request, jsonify, current_app
 import os
 from werkzeug.utils import secure_filename
-from .sam import remove_background_with_sam_and_grabcut
+from .sam import SAMService
+from flask import send_file
+import io
+from PIL import Image
+import numpy as np
+
 
 sam_bp = Blueprint('sam_bp', __name__, url_prefix='/sam')
+sam_service = SAMService()  # 한 번만 초기화
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
+#이미지 업로드 → predictor.set_image() 준비
 @sam_bp.route('/upload', methods=['POST'])
 def sam_upload():
     file = request.files.get('file')
-    if not file or not allowed_file(file.filename):
-        return jsonify({'error':'올바른 이미지 파일이 아닙니다.'}), 400
-    
+    if not file:
+        return jsonify({'error': '파일이 없습니다.'}), 400
+
     filename = secure_filename(file.filename)
     save_folder = os.path.join(current_app.static_folder, 'uploads')
     os.makedirs(save_folder, exist_ok=True)
     filepath = os.path.join(save_folder, filename)
     file.save(filepath)
 
-    # SAM 처리 후 저장 경로도 원본 파일명 그대로
-    output_path = filepath  # grabcut_ 없이 덮어쓰기
-    output_smooth = os.path.join(save_folder, f"smooth_{filename}")
-    output_transparency = os.path.join(save_folder, f"transparency_{filename}")
+    # SAM 이미지 준비
+    sam_service.load_image(filepath)
 
-    # SAM 점 프롬프트와 레이블 (JS에서 나중에 받을 수도 있음)
-    sam_point = [300,400]
-    sam_label = 1
+    return jsonify({
+        'success': True,
+        'filename': filename,
+        'preview_url': f"/static/uploads/{filename}"
+    })
 
-    try:
-        remove_background_with_sam_and_grabcut(
-            filepath,
-            output_path,
-            output_smooth,
-            output_transparency,
-            sam_point,
-            sam_label
-        )
-    except Exception as e:
-        return jsonify({'error': f'SAM 처리 실패: {str(e)}'}), 500
-    # 웹에서 접근 가능한 URL 반환
-    result_url = f"/static/uploads/{filename}"  # 그대로 사용
-    return jsonify({'filename': filename, 'result_url': result_url})
+# 사용자가 좌표를 보내면 sam마스크 png 반환
+@sam_bp.route('/segment', methods=['POST'])
+def sam_segment():
+    data = request.json
+    points = data.get("points")
+    labels = data.get("labels")
+
+    mask = sam_service.segment_from_click(points, labels)
+
+    # mask → PNG
+    mask_img = Image.fromarray((mask * 255).astype(np.uint8))
+    buf = io.BytesIO()
+    mask_img.save(buf, format='PNG')
+    buf.seek(0)
+
+    return send_file(buf, mimetype='image/png')
+
+# 프론트에서 저장 버튼 누르면 서버에 완성png 저장
+@sam_bp.route('/save_final', methods=['POST'])
+def sam_save_final():
+    filename = request.json.get('filename', 'result.png')
+    saved_path = sam_service.save_final_png(filename)
+
+    return jsonify({
+        'success': True,
+        'saved_url': f"/static/images/{filename}"
+    })

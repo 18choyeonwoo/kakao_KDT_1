@@ -22,8 +22,10 @@ def login():
             flash('아이디 또는 비밀번호가 잘못되었습니다.', 'error')
     return render_template('login.html')
 
+
 @auth.route('/logout')
 def logout():
     session.pop('username', None)
     flash('로그아웃 되었습니다.', 'info')
     return redirect(url_for('auth.login'))
+
